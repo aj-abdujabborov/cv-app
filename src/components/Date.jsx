@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { getInputUpdater } from './helpers';
 
 export default function Date({ editMode }) {
-  const [date, setDate] = useState('20XX');
+  const [date, setDate] = useState('');
 
   function handleChange(e) {
     getInputUpdater(setDate)(e);
@@ -17,6 +17,7 @@ export default function Date({ editMode }) {
         className="date text"
         type="text"
         value={date}
+        placeholder="Date"
         onChange={handleChange}
       ></input>
     );

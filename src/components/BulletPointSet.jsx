@@ -25,8 +25,12 @@ export default function BulletPointSet({ editMode }) {
             removeMe={() => removeBulletPoint(bp.key)}
           ></BulletPoint>
         ))}
+        {editMode && (
+          <li>
+            <button onClick={addBulletPoint}>Add bullet point</button>
+          </li>
+        )}
       </ul>
-      {editMode && <button onClick={addBulletPoint}>Add bullet point</button>}
     </div>
   );
 }

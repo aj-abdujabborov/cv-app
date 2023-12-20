@@ -24,6 +24,8 @@ textarea {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
+  border: none;
+  background: none;
 }
 
 /* General */
@@ -43,8 +45,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: none;
+  color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -85,12 +87,6 @@ h4,
 
 .text {
   font-size: 1rem;
-}
-
-/* Input */
-input {
-  border: none;
-  background: none;
 }
 
 /*  */
@@ -159,4 +155,18 @@ input.date {
 ul {
   margin: 0;
   padding-left: 3ch;
+}
+
+li {
+  display: flex;
+  align-items: center;
+}
+
+li.bulletPoint::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: black;
+  margin-right: 5px;
 }

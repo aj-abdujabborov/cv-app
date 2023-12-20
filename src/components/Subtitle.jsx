@@ -10,6 +10,7 @@ export default function Subtitle({ editMode }) {
       <input
         className="h4"
         type="text"
+        placeholder="Subtitle"
         value={subtitle}
         onChange={getInputUpdater(setSubtitle)}
       ></input>

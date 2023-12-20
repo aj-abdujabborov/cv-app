@@ -11,6 +11,7 @@ export default function Title({ editMode }) {
         className="h3"
         type="text"
         value={title}
+        placeholder="Title"
         onChange={getInputUpdater(setTitle)}
       ></input>
     );
