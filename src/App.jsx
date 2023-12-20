@@ -1,12 +1,20 @@
 import { useState } from 'react';
 import './App.css';
 
+import BulletPointSet from './components/BulletPointSet';
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [isEditMode, setIsEditMode] = useState(0);
 
   return (
     <>
-      <h1>Test</h1>
+      <div className="controls">
+        <button onClick={() => setIsEditMode(true)}>Edit mode</button>
+        <button onClick={() => setIsEditMode(false)}>View mode</button>
+      </div>
+      <div>
+        <BulletPointSet editMode={isEditMode}></BulletPointSet>
+      </div>
     </>
   );
 }
