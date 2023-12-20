@@ -8,6 +8,7 @@ export default function Title({ editMode }) {
   if (editMode) {
     return (
       <input
+        className="h3"
         type="text"
         value={title}
         onChange={getInputUpdater(setTitle)}

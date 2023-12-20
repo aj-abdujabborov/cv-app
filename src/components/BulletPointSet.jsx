@@ -16,15 +16,17 @@ export default function BulletPointSet({ editMode }) {
   }
 
   return (
-    <>
-      {bulletPoints.map(bp => (
-        <BulletPoint
-          key={bp.key}
-          editMode={editMode}
-          removeMe={() => removeBulletPoint(bp.key)}
-        ></BulletPoint>
-      ))}
+    <div className="bulletPointSet">
+      <ul>
+        {bulletPoints.map(bp => (
+          <BulletPoint
+            key={bp.key}
+            editMode={editMode}
+            removeMe={() => removeBulletPoint(bp.key)}
+          ></BulletPoint>
+        ))}
+      </ul>
       {editMode && <button onClick={addBulletPoint}>Add bullet point</button>}
-    </>
+    </div>
   );
 }

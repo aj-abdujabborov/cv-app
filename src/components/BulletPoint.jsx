@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 export default function BulletPoint({ editMode, removeMe }) {
   const [text, setText] = useState('');
+  const [bg, setBg] = useState('');
 
   function handleChange(e) {
     setText(e.target.value);
@@ -10,12 +11,27 @@ export default function BulletPoint({ editMode, removeMe }) {
 
   if (editMode) {
     return (
-      <li>
-        <input type="text" value={text} onChange={handleChange}></input>
-        <button onClick={removeMe}>(-)</button>
+      <li
+        className="bulletPoint text"
+        style={{ position: 'relative', backgroundColor: bg }}
+      >
+        <div
+          style={{
+            backgroundColor: 'red',
+            width: '20px',
+            height: '100%',
+            position: 'absolute',
+            top: '0px',
+            left: '0px',
+          }}
+          onMouseOver={() => setBg('red')}
+          onMouseLeave={() => setBg('')}
+          onClick={removeMe}
+        ></div>
+        <textarea rows="2" onChange={handleChange} value={text}></textarea>
       </li>
     );
   } else {
-    return <li>{text}</li>;
+    return <li className="bulletPoint text">{text}</li>;
   }
 }

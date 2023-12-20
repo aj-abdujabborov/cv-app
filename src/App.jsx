@@ -5,7 +5,7 @@ import BulletPointSet from './components/BulletPointSet';
 import ExperienceSet from './components/ExperienceSet';
 
 function App() {
-  const [isEditMode, setIsEditMode] = useState(0);
+  const [isEditMode, setIsEditMode] = useState(false);
 
   return (
     <>
@@ -13,7 +13,7 @@ function App() {
         <button onClick={() => setIsEditMode(true)}>Edit mode</button>
         <button onClick={() => setIsEditMode(false)}>View mode</button>
       </div>
-      <div>
+      <div className="builder">
         <ExperienceSet editMode={isEditMode}></ExperienceSet>
       </div>
     </>
