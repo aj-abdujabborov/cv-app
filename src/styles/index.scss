@@ -1,0 +1,64 @@
+@use './resets';
+@use './button';
+@use './typography';
+@use './page';
+@use './controls';
+@use './deleter';
+
+/* General */
+* {
+  box-sizing: border-box;
+}
+
+input {
+  padding: 0 5px;
+  margin: 0;
+}
+
+/* Experience */
+.experience {
+  margin: 15px 0;
+}
+
+/*  */
+.spaceBetween {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.spaceBetween .h3 {
+  flex: 10 0 10px;
+}
+
+input.date {
+  min-width: 6ch;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Bullet points */
+.bulletPoint textarea {
+  width: 100%;
+  resize: none;
+}
+
+ul {
+  margin: 0;
+  padding-left: 3ch;
+}
+
+li {
+  display: flex;
+  align-items: center;
+}
+
+li.bulletPoint::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: black;
+  margin-right: 5px;
+}

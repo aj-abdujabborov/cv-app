@@ -8,7 +8,7 @@ import BulletPointSet from './BulletPointSet';
 
 export default function Experience({ editMode }) {
   return (
-    <div>
+    <div className="experience">
       <div className="spaceBetween">
         <Title editMode={editMode}></Title>
         <DateRange editMode={editMode}></DateRange>

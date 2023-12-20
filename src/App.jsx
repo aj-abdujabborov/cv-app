@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 
 import BulletPointSet from './components/BulletPointSet';
 import ExperienceSet from './components/ExperienceSet';

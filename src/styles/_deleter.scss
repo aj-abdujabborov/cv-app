@@ -1,0 +1,7 @@
+.deleter {
+  background: pink;
+  width: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
