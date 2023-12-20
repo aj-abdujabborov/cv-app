@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
+import Deleter from './Deleter';
 
 export default function BulletPoint({ editMode, removeMe }) {
   const [text, setText] = useState('');
@@ -11,24 +12,13 @@ export default function BulletPoint({ editMode, removeMe }) {
 
   if (editMode) {
     return (
-      <li className="bulletPoint text" style={{ position: 'relative' }}>
-        <div
-          style={{
-            backgroundColor: 'red',
-            width: '10px',
-            height: '80%',
-            position: 'absolute',
-            top: '50%',
-            left: '-60px',
-            transform: 'translateY(-50%)',
-          }}
-          onMouseOver={() => setBg('red')}
-          onMouseLeave={() => setBg('')}
-          onClick={removeMe}
-        ></div>
+      <li
+        className="bulletPoint text deletable"
+        style={{ position: 'relative' }}
+      >
+        <Deleter setBg={setBg} removeComponent={removeMe}></Deleter>
         <textarea
           style={{ backgroundColor: bg }}
-          rows="2"
           onChange={handleChange}
           value={text}
           placeholder="Bullet point"

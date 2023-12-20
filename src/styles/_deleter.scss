@@ -1,7 +1,18 @@
+:root {
+  --deleter-color: pink;
+}
+
 .deleter {
-  background: pink;
+  position: absolute;
   width: 10px;
+  height: 80%;
+  background: var(--deleter-color);
+
   &:hover {
     cursor: pointer;
   }
 }
+
+// li {
+//   height: 40px;
+// }
