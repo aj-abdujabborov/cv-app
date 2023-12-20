@@ -7,12 +7,10 @@
   width: 10px;
   height: 80%;
   background: var(--deleter-color);
+  border-radius: 10px;
 
   &:hover {
     cursor: pointer;
+    background: red;
   }
 }
-
-// li {
-//   height: 40px;
-// }

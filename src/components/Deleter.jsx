@@ -1,4 +1,4 @@
-export default function Deleter({ setBg, removeComponent }) {
+export default function Deleter({ setBg, removeComponent, shift }) {
   const color = document.documentElement
     .computedStyleMap()
     .get('--deleter-color')[0];
@@ -7,7 +7,7 @@ export default function Deleter({ setBg, removeComponent }) {
     <div
       className="deleter"
       style={{
-        left: '-4ch',
+        left: shift,
       }}
       onMouseOver={() => setBg(color)}
       onMouseLeave={() => setBg('')}

@@ -5,10 +5,14 @@ import Subtitle from './Subtitle';
 import Title from './Title';
 import DateRange from './DateRange';
 import BulletPointSet from './BulletPointSet';
+import Deleter from './Deleter';
 
-export default function Experience({ editMode }) {
+export default function Experience({ editMode, removeMe }) {
+  const [bg, setBg] = useState('');
+
   return (
-    <div className="experience">
+    <div className="experience relative" style={{ background: bg }}>
+      <Deleter setBg={setBg} removeComponent={removeMe} shift="-15px"></Deleter>
       <div className="spaceBetween">
         <Title editMode={editMode}></Title>
         <DateRange editMode={editMode}></DateRange>

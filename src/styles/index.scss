@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+.relative {
+  position: relative;
+}
+
 input {
   padding: 0 5px;
   margin: 0;
@@ -66,4 +70,10 @@ li.bulletPoint::before {
   border-radius: 50%;
   background: black;
   margin-right: 5px;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

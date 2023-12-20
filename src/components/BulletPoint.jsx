@@ -12,11 +12,12 @@ export default function BulletPoint({ editMode, removeMe }) {
 
   if (editMode) {
     return (
-      <li
-        className="bulletPoint text deletable"
-        style={{ position: 'relative' }}
-      >
-        <Deleter setBg={setBg} removeComponent={removeMe}></Deleter>
+      <li className="bulletPoint text relative">
+        <Deleter
+          setBg={setBg}
+          removeComponent={removeMe}
+          shift="-15px"
+        ></Deleter>
         <textarea
           style={{ backgroundColor: bg }}
           onChange={handleChange}
