@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 
 import BulletPointSet from './components/BulletPointSet';
+import ExperienceSet from './components/ExperienceSet';
 
 function App() {
   const [isEditMode, setIsEditMode] = useState(0);
@@ -13,7 +14,7 @@ function App() {
         <button onClick={() => setIsEditMode(false)}>View mode</button>
       </div>
       <div>
-        <BulletPointSet editMode={isEditMode}></BulletPointSet>
+        <ExperienceSet editMode={isEditMode}></ExperienceSet>
       </div>
     </>
   );
