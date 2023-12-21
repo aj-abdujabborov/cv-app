@@ -96,3 +96,13 @@ function getBlankBulletPoint() {
 }
 
 export { initialData, getBlankSectionItem, getBlankBulletPoint };
+
+// If we make the program more flexible, this is how nested things can get.
+// Is there a better way?
+// sectionArray: []
+//  section: {title, sectionItemArray}
+//    sectionItemArray: []
+//      sectionItem: {title, subtitle, startDate, endDate, bulletPoints}
+//        bulletPoints: {marker, array},
+//          array: [bp, bp],
+//            bp: {key, text}
