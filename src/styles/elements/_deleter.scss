@@ -8,13 +8,22 @@
   height: 80%;
   background: var(--deleter-color);
   border-radius: 0.3rem;
+  background: rgb(254, 91, 91);
 
   &:hover {
     cursor: pointer;
-    background: red;
   }
 }
 
 .deletable {
   border-radius: 0.8rem;
+  transition:
+    200ms ease-in-out transform,
+    200ms ease-in-out background-color;
+  padding: 0.3rem;
+
+  &.active {
+    background: rgb(255, 162, 177);
+    transform: translateX(0.25rem);
+  }
 }

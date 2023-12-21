@@ -12,7 +12,7 @@ export default function SectionItem({
   editMe,
   sectionItem,
 }) {
-  const [bg, setBg] = useState('');
+  const [userHoveringDeleter, setUserHoveringDeleter] = useState(false);
 
   function getPropertyEditor(propName) {
     return function setProperty(prop) {
@@ -23,42 +23,46 @@ export default function SectionItem({
     };
   }
 
+  let contentDivClasses = 'content';
+  if (editMode) contentDivClasses += ' deletable';
+  if (editMode && userHoveringDeleter) contentDivClasses += ' active';
+
   return (
-    <li className="sectionItem deletable relative" style={{ background: bg }}>
+    <li className="relative sectionItem">
       {editMode && (
         <Deleter
-          setBg={setBg}
+          setUserHoveringDeleter={setUserHoveringDeleter}
           removeComponent={removeMe}
           shift="-1rem"
         ></Deleter>
       )}
 
-      <div className="spaceBetween">
-        <Title
+      <div className={contentDivClasses}>
+        <div className="spaceBetween">
+          <Title
+            editMode={editMode}
+            text={sectionItem.title}
+            editMe={getPropertyEditor('title')}
+          ></Title>
+          <DateRange
+            editMode={editMode}
+            start={sectionItem.startDate}
+            end={sectionItem.endDate}
+            editStart={getPropertyEditor('startDate')}
+            editEnd={getPropertyEditor('endDate')}
+          ></DateRange>
+        </div>
+        <Subtitle
           editMode={editMode}
-          text={sectionItem.title}
-          editMe={getPropertyEditor('title')}
-        ></Title>
-        <DateRange
+          text={sectionItem.subtitle}
+          editMe={getPropertyEditor('subtitle')}
+        ></Subtitle>
+        <BulletPointSet
           editMode={editMode}
-          start={sectionItem.startDate}
-          end={sectionItem.endDate}
-          editStart={getPropertyEditor('startDate')}
-          editEnd={getPropertyEditor('endDate')}
-        ></DateRange>
+          bpArray={sectionItem.bulletPoints}
+          editMe={getPropertyEditor('bulletPoints')}
+        ></BulletPointSet>
       </div>
-
-      <Subtitle
-        editMode={editMode}
-        text={sectionItem.subtitle}
-        editMe={getPropertyEditor('subtitle')}
-      ></Subtitle>
-
-      <BulletPointSet
-        editMode={editMode}
-        bpArray={sectionItem.bulletPoints}
-        editMe={getPropertyEditor('bulletPoints')}
-      ></BulletPointSet>
     </li>
   );
 }

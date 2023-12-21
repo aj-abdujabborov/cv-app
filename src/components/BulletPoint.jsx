@@ -9,23 +9,26 @@ export default function BulletPoint({
   editMe,
   removeMe,
 }) {
-  const [bg, setBg] = useState('');
+  const [userHoveringDeleter, setUserHoveringDeleter] = useState(false);
 
   function editBulletPoint(text) {
     editMe({ ...bulletPoint, text });
   }
 
+  let inputClassNames = '';
+  if (editMode) inputClassNames += ' deletable';
+  if (editMode && userHoveringDeleter) inputClassNames += ' active';
+
   if (editMode) {
     return (
       <li className="bulletPoint edit text relative">
         <Deleter
-          setBg={setBg}
+          setUserHoveringDeleter={setUserHoveringDeleter}
           removeComponent={removeMe}
           shift="-1rem"
         ></Deleter>
         <textarea
-          className="deletable"
-          style={{ backgroundColor: bg }}
+          className={inputClassNames}
           onChange={getInputUpdater(editBulletPoint)}
           value={bulletPoint.text}
           placeholder="Bullet point"

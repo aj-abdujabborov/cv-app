@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
-export default function Deleter({ setBg, removeComponent, shift }) {
-  const color = document.documentElement
-    .computedStyleMap()
-    .get('--deleter-color')[0];
-
+export default function Deleter({
+  setUserHoveringDeleter,
+  removeComponent,
+  shift,
+}) {
   return (
     <div
       className="deleter"
       style={{
         left: shift,
       }}
-      onMouseOver={() => setBg(color)}
-      onMouseLeave={() => setBg('')}
+      onMouseOver={() => setUserHoveringDeleter(true)}
+      onMouseLeave={() => setUserHoveringDeleter(false)}
       onClick={removeComponent}
     ></div>
   );
