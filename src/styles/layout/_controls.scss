@@ -1,12 +1,12 @@
 .controls {
-  align-items: start;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
 
-.builder {
-  width: 800px;
-}
+  background: rgb(85, 82, 82);
 
-.controls,
-.builder {
-  display: block;
+  padding: 10px;
+  width: 100%;
 }
