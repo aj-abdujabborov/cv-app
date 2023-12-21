@@ -1,0 +1,27 @@
+@mixin bulletPoint {
+  ul {
+    margin: 0;
+    padding-left: 3ch;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    height: 45px;
+
+    textarea {
+      width: 100%;
+      height: 100%;
+      resize: none;
+    }
+  }
+
+  li.bulletPoint::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: black;
+    margin-right: 5px;
+  }
+}
