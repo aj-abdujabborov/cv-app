@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { initialData } from './components/Data';
 import Section from './components/Section';
 import SectionName from './components/SectionName';
+import ContactSegment from './components/ContactSegment';
 
 function App() {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -18,6 +19,12 @@ function App() {
         <button onClick={() => setIsEditMode(false)}>View mode</button>
       </div>
       <div className="builder">
+        <ContactSegment
+          editMode={isEditMode}
+          editMe={setContactData}
+          contactSegm={contactData}
+        ></ContactSegment>
+
         <SectionName editMode={false} text="Education"></SectionName>
         <Section
           editMode={isEditMode}
