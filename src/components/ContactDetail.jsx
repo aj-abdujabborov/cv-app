@@ -1,11 +1,18 @@
 /* eslint-disable react/prop-types */
 import { getInputUpdater } from './helpers';
 
-export default function ContactDetail({ editMode, text, editMe, placeholder }) {
+export default function ContactDetail({
+  editMode,
+  text,
+  editMe,
+  placeholder,
+  classes,
+}) {
+  const classNames = 'contactDetail ' + classes;
   if (editMode) {
     return (
       <input
-        className="contactDetail"
+        className={classNames}
         type="text"
         placeholder={placeholder}
         value={text}
@@ -13,6 +20,6 @@ export default function ContactDetail({ editMode, text, editMe, placeholder }) {
       ></input>
     );
   } else {
-    return <span className="contactDetail">{text}</span>;
+    return <span className={classNames}>{text}</span>;
   }
 }

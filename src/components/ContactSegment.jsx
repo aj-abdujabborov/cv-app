@@ -25,18 +25,21 @@ export default function ContactSegment({ editMode, editMe, contactSegm }) {
           text={contactSegm.address}
           editMe={getPropertyEditor('address')}
           placeholder="Address"
+          classes="address"
         ></ContactDetail>
         <ContactDetail
           editMode={editMode}
           text={contactSegm.phone}
           editMe={getPropertyEditor('phone')}
           placeholder="Phone"
+          classes="phone"
         ></ContactDetail>
         <ContactDetail
           editMode={editMode}
           text={contactSegm.email}
           editMe={getPropertyEditor('email')}
           placeholder="email@email.com"
+          classes="email"
         ></ContactDetail>
       </div>
     </div>
