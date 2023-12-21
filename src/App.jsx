@@ -1,16 +1,25 @@
 import { useState } from 'react';
 import { initialData } from './components/Data';
 import Section from './components/Section';
-import SectionName from './components/SectionName';
 import ContactSegment from './components/ContactSegment';
+
+let localData = localStorage.getItem('data');
+if (localData) localData = JSON.parse(localData);
 
 function App() {
   const [isEditMode, setIsEditMode] = useState(false);
-  const [contactData, setContactData] = useState(initialData.contact);
-  const [educationData, setEducationData] = useState(initialData.educationSet);
-  const [experienceData, setExperienceData] = useState(
-    initialData.experienceSet,
-  );
+  const [data, setData] = useState(localData || initialData);
+
+  function getPropertyEditor(propName) {
+    return function setProperty(prop) {
+      const updatedData = {
+        ...data,
+        [propName]: prop,
+      };
+      setData(updatedData);
+      localStorage.setItem('data', JSON.stringify(updatedData));
+    };
+  }
 
   return (
     <>
@@ -37,21 +46,21 @@ function App() {
       <div className="builder">
         <ContactSegment
           editMode={isEditMode}
-          editMe={setContactData}
-          contactSegm={contactData}
+          editMe={getPropertyEditor('contact')}
+          contactSegm={data.contact}
         ></ContactSegment>
 
         <Section
           editMode={isEditMode}
-          setItemArray={setEducationData}
-          itemArray={educationData}
+          setItemArray={getPropertyEditor('educationSet')}
+          itemArray={data.educationSet}
           title="Education"
         ></Section>
 
         <Section
           editMode={isEditMode}
-          setItemArray={setExperienceData}
-          itemArray={experienceData}
+          setItemArray={getPropertyEditor('experienceSet')}
+          itemArray={data.experienceSet}
           title="Work Experience"
         ></Section>
       </div>
