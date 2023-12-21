@@ -8,13 +8,13 @@ export default function DateRange({
   editStart,
   editEnd,
 }) {
-  const dash = editMode ? '-' : start.length > 0 && '-';
+  const dash = editMode ? ' - ' : start.length > 0 && ' - ';
 
   return (
-    <>
+    <div className="dateRange">
       <Date editMode={editMode} text={start} editMe={editStart}></Date>
       {dash}
       <Date editMode={editMode} text={end} editMe={editEnd}></Date>
-    </>
+    </div>
   );
 }

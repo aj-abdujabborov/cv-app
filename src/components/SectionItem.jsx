@@ -24,7 +24,7 @@ export default function SectionItem({
   }
 
   return (
-    <div className="sectionItem relative" style={{ background: bg }}>
+    <li className="sectionItem relative" style={{ background: bg }}>
       {editMode && (
         <Deleter
           setBg={setBg}
@@ -59,6 +59,6 @@ export default function SectionItem({
         bpArray={sectionItem.bulletPoints}
         editMe={getPropertyEditor('bulletPoints')}
       ></BulletPointSet>
-    </div>
+    </li>
   );
 }

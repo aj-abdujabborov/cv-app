@@ -6,7 +6,7 @@ export default function Date({ editMode, text, editMe }) {
     return (
       <input
         style={{ width: text.length + 'ch' }}
-        className="date text"
+        className="date h3"
         type="text"
         value={text}
         placeholder="Date"
@@ -14,6 +14,6 @@ export default function Date({ editMode, text, editMe }) {
       ></input>
     );
   } else {
-    return <span className="date text">{text}</span>;
+    return <span className="date h3">{text}</span>;
   }
 }

@@ -16,26 +16,24 @@ export default function BulletPointSet({ editMode, bpArray, editMe }) {
   }
 
   return (
-    <div className="bulletPointSet">
-      <ul>
-        {bpArray.map(bp => (
-          <BulletPoint
-            key={bp.key}
-            editMode={editMode}
-            bulletPoint={bp}
-            editMe={editBulletPoint}
-            removeMe={() => removeBulletPoint(bp.key)}
-          ></BulletPoint>
-        ))}
-        {editMode && (
-          <button aria-label="Add bullet point" onClick={addBulletPoint}>
-            <span aria-hidden={true} className="material-symbols-outlined">
-              add
-            </span>{' '}
-            Point
-          </button>
-        )}
-      </ul>
-    </div>
+    <ul className="bulletPointSet">
+      {bpArray.map(bp => (
+        <BulletPoint
+          key={bp.key}
+          editMode={editMode}
+          bulletPoint={bp}
+          editMe={editBulletPoint}
+          removeMe={() => removeBulletPoint(bp.key)}
+        ></BulletPoint>
+      ))}
+      {editMode && (
+        <button aria-label="Add bullet point" onClick={addBulletPoint}>
+          <span aria-hidden={true} className="material-symbols-outlined">
+            add
+          </span>{' '}
+          Point
+        </button>
+      )}
+    </ul>
   );
 }

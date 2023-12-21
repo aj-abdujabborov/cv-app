@@ -41,18 +41,18 @@ function App() {
           contactSegm={contactData}
         ></ContactSegment>
 
-        <SectionName editMode={false} text="Education"></SectionName>
         <Section
           editMode={isEditMode}
           setItemArray={setEducationData}
           itemArray={educationData}
+          title="Education"
         ></Section>
 
-        <SectionName editMode={false} text="Work Experience"></SectionName>
         <Section
           editMode={isEditMode}
           setItemArray={setExperienceData}
           itemArray={experienceData}
+          title="Work Experience"
         ></Section>
       </div>
     </>

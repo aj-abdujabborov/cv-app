@@ -8,7 +8,7 @@ export default function ContactDetail({
   placeholder,
   classes,
 }) {
-  const classNames = 'contactDetail ' + classes;
+  const classNames = 'contactDetail text ' + classes;
   if (editMode) {
     return (
       <input

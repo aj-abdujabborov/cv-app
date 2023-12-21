@@ -17,7 +17,7 @@ export default function BulletPoint({
 
   if (editMode) {
     return (
-      <li className="bulletPoint text relative">
+      <li className="bulletPoint edit text relative">
         <Deleter
           setBg={setBg}
           removeComponent={removeMe}
@@ -32,6 +32,6 @@ export default function BulletPoint({
       </li>
     );
   } else {
-    return <li className="bulletPoint text">{bulletPoint.text}</li>;
+    return <li className="bulletPoint view text">{bulletPoint.text}</li>;
   }
 }

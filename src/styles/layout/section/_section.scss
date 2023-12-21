@@ -1,15 +1,22 @@
 @use './bulletPoint' as bp;
 
+.section {
+  & > ul.itemList {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .sectionItem {
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  margin: 15px 0;
+  margin-bottom: 0.4rem;
 
   .spaceBetween {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
 
