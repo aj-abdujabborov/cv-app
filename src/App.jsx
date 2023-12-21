@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { initialData } from './components/Data';
-import ExperienceSet from './components/ExperienceSet';
+import Section from './components/Section';
 import SectionName from './components/SectionName';
 
 function App() {
@@ -19,18 +19,18 @@ function App() {
       </div>
       <div className="builder">
         <SectionName editMode={false} text="Education"></SectionName>
-        <ExperienceSet
+        <Section
           editMode={isEditMode}
-          setExpArray={setEducationData}
-          expArray={educationData}
-        ></ExperienceSet>
+          setItemArray={setEducationData}
+          itemArray={educationData}
+        ></Section>
 
         <SectionName editMode={false} text="Work Experience"></SectionName>
-        <ExperienceSet
+        <Section
           editMode={isEditMode}
-          setExpArray={setExperienceData}
-          expArray={experienceData}
-        ></ExperienceSet>
+          setItemArray={setExperienceData}
+          itemArray={experienceData}
+        ></Section>
       </div>
     </>
   );

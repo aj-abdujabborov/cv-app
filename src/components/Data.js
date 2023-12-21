@@ -80,18 +80,7 @@ const initialData = {
   ],
 };
 
-function getBlankExperience() {
-  return {
-    key: uuid(),
-    title: '',
-    subtitle: '',
-    startDate: '',
-    endDate: '',
-    bulletPoints: [],
-  };
-}
-
-function getBlankEducation() {
+function getBlankSectionItem() {
   return {
     key: uuid(),
     title: '',
@@ -106,9 +95,4 @@ function getBlankBulletPoint() {
   return { key: uuid(), text: '' };
 }
 
-export {
-  initialData,
-  getBlankExperience,
-  getBlankEducation,
-  getBlankBulletPoint,
-};
+export { initialData, getBlankSectionItem, getBlankBulletPoint };

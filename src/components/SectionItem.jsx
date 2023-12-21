@@ -6,20 +6,25 @@ import DateRange from './DateRange';
 import BulletPointSet from './BulletPointSet';
 import Deleter from './Deleter';
 
-export default function Experience({ editMode, removeMe, editMe, experience }) {
+export default function SectionItem({
+  editMode,
+  removeMe,
+  editMe,
+  sectionItem,
+}) {
   const [bg, setBg] = useState('');
 
   function getPropertyEditor(propName) {
     return function setProperty(prop) {
       editMe({
-        ...experience,
+        ...sectionItem,
         [propName]: prop,
       });
     };
   }
 
   return (
-    <div className="experience relative" style={{ background: bg }}>
+    <div className="sectionItem relative" style={{ background: bg }}>
       {editMode && (
         <Deleter
           setBg={setBg}
@@ -31,13 +36,13 @@ export default function Experience({ editMode, removeMe, editMe, experience }) {
       <div className="spaceBetween">
         <Title
           editMode={editMode}
-          text={experience.title}
+          text={sectionItem.title}
           editMe={getPropertyEditor('title')}
         ></Title>
         <DateRange
           editMode={editMode}
-          start={experience.startDate}
-          end={experience.endDate}
+          start={sectionItem.startDate}
+          end={sectionItem.endDate}
           editStart={getPropertyEditor('startDate')}
           editEnd={getPropertyEditor('endDate')}
         ></DateRange>
@@ -45,13 +50,13 @@ export default function Experience({ editMode, removeMe, editMe, experience }) {
 
       <Subtitle
         editMode={editMode}
-        text={experience.subtitle}
+        text={sectionItem.subtitle}
         editMe={getPropertyEditor('subtitle')}
       ></Subtitle>
 
       <BulletPointSet
         editMode={editMode}
-        bpArray={experience.bulletPoints}
+        bpArray={sectionItem.bulletPoints}
         editMe={getPropertyEditor('bulletPoints')}
       ></BulletPointSet>
     </div>
