@@ -1,27 +1,31 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
-import { v4 as uuid } from 'uuid';
 import Experience from './Experience';
+import { getBlankExperience } from './Data';
 
-export default function ExperienceSet({ editMode }) {
-  const [experiences, setExperiences] = useState([]);
-
+export default function ExperienceSet({ editMode, expArray, setExpArray }) {
   function addExperience() {
-    const newExp = { key: uuid() };
-    setExperiences([...experiences, newExp]);
+    setExpArray([...expArray, getBlankExperience()]);
+  }
+
+  function editExperience(experience) {
+    setExpArray(
+      expArray.map(exp => (exp.key === experience.key ? experience : exp)),
+    );
   }
 
   function removeExperience(key) {
-    setExperiences(experiences.filter(exp => exp.key !== key));
+    setExpArray(expArray.filter(exp => exp.key !== key));
   }
 
   return (
     <>
-      {experiences.map(exp => (
+      {expArray.map(exp => (
         <Experience
           key={exp.key}
           editMode={editMode}
+          experience={exp}
           removeMe={() => removeExperience(exp.key)}
+          editMe={editExperience}
         ></Experience>
       ))}
       {editMode && <button onClick={addExperience}>Add experience</button>}

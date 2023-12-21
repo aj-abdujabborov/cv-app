@@ -1,27 +1,19 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
 import { getInputUpdater } from './helpers';
 
-export default function Date({ editMode }) {
-  const [date, setDate] = useState('');
-
-  function handleChange(e) {
-    getInputUpdater(setDate)(e);
-    e.target.style.width = e.target.value.length + 'ch';
-  }
-
+export default function Date({ editMode, text, editMe }) {
   if (editMode) {
     return (
       <input
-        style={{ width: 0 }}
+        style={{ width: text.length + 'ch' }}
         className="date text"
         type="text"
-        value={date}
+        value={text}
         placeholder="Date"
-        onChange={handleChange}
+        onChange={getInputUpdater(editMe)}
       ></input>
     );
   } else {
-    return <span className="date text">{date}</span>;
+    return <span className="date text">{text}</span>;
   }
 }

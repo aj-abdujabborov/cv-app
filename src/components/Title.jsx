@@ -1,21 +1,18 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
 import { getInputUpdater } from './helpers';
 
-export default function Title({ editMode }) {
-  const [title, setTitle] = useState('');
-
+export default function Title({ editMode, text, editMe }) {
   if (editMode) {
     return (
       <input
         className="h3"
         type="text"
-        value={title}
+        value={text}
         placeholder="Title"
-        onChange={getInputUpdater(setTitle)}
+        onChange={getInputUpdater(editMe)}
       ></input>
     );
   } else {
-    return <h3>{title}</h3>;
+    return <h3>{text}</h3>;
   }
 }

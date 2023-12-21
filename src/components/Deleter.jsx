@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export default function Deleter({ setBg, removeComponent, shift }) {
   const color = document.documentElement
     .computedStyleMap()

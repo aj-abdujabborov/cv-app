@@ -1,27 +1,29 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
-import { v4 as uuid } from 'uuid';
 import BulletPoint from './BulletPoint';
+import { getBlankBulletPoint } from './Data';
 
-export default function BulletPointSet({ editMode }) {
-  const [bulletPoints, setBulletPoints] = useState([]);
-
+export default function BulletPointSet({ editMode, bpArray, editMe }) {
   function addBulletPoint() {
-    const newBp = { key: uuid() };
-    setBulletPoints([...bulletPoints, newBp]);
+    editMe([...bpArray, getBlankBulletPoint()]);
+  }
+
+  function editBulletPoint(bulletPoint) {
+    editMe(bpArray.map(bp => (bp.key === bulletPoint.key ? bulletPoint : bp)));
   }
 
   function removeBulletPoint(key) {
-    setBulletPoints(bulletPoints.filter(bp => bp.key !== key));
+    editMe(bpArray.filter(bp => bp.key !== key));
   }
 
   return (
     <div className="bulletPointSet">
       <ul>
-        {bulletPoints.map(bp => (
+        {bpArray.map(bp => (
           <BulletPoint
             key={bp.key}
             editMode={editMode}
+            bulletPoint={bp}
+            editMe={editBulletPoint}
             removeMe={() => removeBulletPoint(bp.key)}
           ></BulletPoint>
         ))}

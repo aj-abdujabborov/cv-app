@@ -1,10 +1,14 @@
 import { useState } from 'react';
-
-import BulletPointSet from './components/BulletPointSet';
+import { initialData } from './components/Data';
 import ExperienceSet from './components/ExperienceSet';
 
 function App() {
   const [isEditMode, setIsEditMode] = useState(false);
+  const [contactData, setContactData] = useState(initialData.contact);
+  const [educationData, setEducationData] = useState(initialData.educationSet);
+  const [experienceData, setExperienceData] = useState(
+    initialData.experienceSet,
+  );
 
   return (
     <>
@@ -13,7 +17,11 @@ function App() {
         <button onClick={() => setIsEditMode(false)}>View mode</button>
       </div>
       <div className="builder">
-        <ExperienceSet editMode={isEditMode}></ExperienceSet>
+        <ExperienceSet
+          editMode={isEditMode}
+          setExpArray={setExperienceData}
+          expArray={experienceData}
+        ></ExperienceSet>
       </div>
     </>
   );

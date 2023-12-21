@@ -1,13 +1,18 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import Deleter from './Deleter';
+import { getInputUpdater } from './helpers';
 
-export default function BulletPoint({ editMode, removeMe }) {
-  const [text, setText] = useState('');
+export default function BulletPoint({
+  editMode,
+  bulletPoint,
+  editMe,
+  removeMe,
+}) {
   const [bg, setBg] = useState('');
 
-  function handleChange(e) {
-    setText(e.target.value);
+  function editBulletPoint(text) {
+    editMe({ ...bulletPoint, text });
   }
 
   if (editMode) {
@@ -20,13 +25,13 @@ export default function BulletPoint({ editMode, removeMe }) {
         ></Deleter>
         <textarea
           style={{ backgroundColor: bg }}
-          onChange={handleChange}
-          value={text}
+          onChange={getInputUpdater(editBulletPoint)}
+          value={bulletPoint.text}
           placeholder="Bullet point"
         ></textarea>
       </li>
     );
   } else {
-    return <li className="bulletPoint text">{text}</li>;
+    return <li className="bulletPoint text">{bulletPoint.text}</li>;
   }
 }
