@@ -24,12 +24,12 @@ export default function SectionItem({
   }
 
   return (
-    <li className="sectionItem relative" style={{ background: bg }}>
+    <li className="sectionItem deletable relative" style={{ background: bg }}>
       {editMode && (
         <Deleter
           setBg={setBg}
           removeComponent={removeMe}
-          shift="-15px"
+          shift="-1rem"
         ></Deleter>
       )}
 

@@ -21,9 +21,10 @@ export default function BulletPoint({
         <Deleter
           setBg={setBg}
           removeComponent={removeMe}
-          shift="-15px"
+          shift="-1rem"
         ></Deleter>
         <textarea
+          className="deletable"
           style={{ backgroundColor: bg }}
           onChange={getInputUpdater(editBulletPoint)}
           value={bulletPoint.text}
