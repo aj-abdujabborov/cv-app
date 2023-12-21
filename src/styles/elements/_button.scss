@@ -9,6 +9,17 @@ button {
   color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-size: inherit;
+  }
+
+  span.material-symbols-outlined {
+  }
 }
 button:hover {
   border-color: #646cff;

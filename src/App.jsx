@@ -15,8 +15,24 @@ function App() {
   return (
     <>
       <div className="controls">
-        <button onClick={() => setIsEditMode(true)}>Edit mode</button>
-        <button onClick={() => setIsEditMode(false)}>View mode</button>
+        <button
+          className={isEditMode ? 'active' : undefined}
+          aria-label="Edit CV"
+          onClick={() => setIsEditMode(true)}
+        >
+          <span className="material-symbols-outlined" aria-hidden={true}>
+            edit
+          </span>
+        </button>
+        <button
+          className={!isEditMode ? 'active' : undefined}
+          aria-label="View CV"
+          onClick={() => setIsEditMode(false)}
+        >
+          <span className="material-symbols-outlined" aria-hidden={true}>
+            note
+          </span>
+        </button>
       </div>
       <div className="builder">
         <ContactSegment

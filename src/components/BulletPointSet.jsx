@@ -28,9 +28,12 @@ export default function BulletPointSet({ editMode, bpArray, editMe }) {
           ></BulletPoint>
         ))}
         {editMode && (
-          <li>
-            <button onClick={addBulletPoint}>Add bullet point</button>
-          </li>
+          <button aria-label="Add bullet point" onClick={addBulletPoint}>
+            <span aria-hidden={true} className="material-symbols-outlined">
+              add
+            </span>{' '}
+            Point
+          </button>
         )}
       </ul>
     </div>

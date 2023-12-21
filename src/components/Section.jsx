@@ -26,7 +26,14 @@ export default function Section({ editMode, itemArray, setItemArray }) {
           editMe={editItem}
         ></SectionItem>
       ))}
-      {editMode && <button onClick={addItem}>Add item</button>}
+      {editMode && (
+        <button aria-label="Add item" onClick={addItem}>
+          <span aria-hidden={true} className="material-symbols-outlined">
+            add
+          </span>{' '}
+          Item
+        </button>
+      )}
     </>
   );
 }
