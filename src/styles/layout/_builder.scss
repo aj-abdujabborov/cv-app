@@ -1,6 +1,11 @@
 .builder {
-  display: block;
-  width: 800px;
+  $page-width: 80vw;
 
-  margin: 40px;
+  display: block;
+  width: $page-width;
+  min-height: $page-width * 1.41;
+  // ensures that page always at least has aspect ratio of A4 paper, which is 1.41
+  // using pixels would not work because page wouldn't resize dynamically & keep minimum aspect ratio
+
+  margin: 2rem 4rem;
 }

@@ -4,10 +4,10 @@
 
 .deleter {
   position: absolute;
-  width: 10px;
+  width: 0.6rem;
   height: 80%;
   background: var(--deleter-color);
-  border-radius: 10px;
+  border-radius: 0.3rem;
 
   &:hover {
     cursor: pointer;
