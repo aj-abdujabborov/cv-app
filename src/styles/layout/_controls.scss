@@ -1,11 +1,13 @@
+@use '../colors';
+
 .controls {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  gap: 0.8rem;
+  gap: 1.5rem;
 
-  background: rgb(85, 82, 82);
+  background: var(--dark);
 
   padding: 0.8rem;
   width: 100%;
@@ -17,9 +19,14 @@
     span {
       font-size: inherit;
     }
-  }
 
-  button.active {
-    background: rgb(242, 222, 218);
+    background: none;
+    color: var(--light);
+
+    &.active {
+      background: var(--light);
+      color: var(--dark);
+      transform: scale(1.15);
+    }
   }
 }

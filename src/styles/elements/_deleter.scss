@@ -1,14 +1,10 @@
-:root {
-  --deleter-color: pink;
-}
-
 .deleter {
   position: absolute;
   width: 0.6rem;
   height: 80%;
   background: var(--deleter-color);
   border-radius: 0.3rem;
-  background: rgb(254, 91, 91);
+  background: var(--danger);
 
   &:hover {
     cursor: pointer;
@@ -23,7 +19,7 @@
   padding: 0.3rem;
 
   &.active {
-    background: rgb(255, 162, 177);
+    background: var(--endangered);
     transform: translateX(0.25rem);
   }
 }

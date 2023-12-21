@@ -1,3 +1,5 @@
+@use '../colors';
+
 body {
   margin: 0;
   padding: 20px;
@@ -10,13 +12,13 @@ body {
   align-items: center;
   flex-direction: column;
 
-  background: rgb(227, 222, 222);
+  background: var(--light);
 }
 
 #root {
   border-radius: 1rem;
   overflow: hidden;
 
-  background: rgb(255, 255, 255);
+  background: var(--page);
   box-shadow: 1rem 2rem 1.3rem rgba(0, 0, 0, 0.235);
 }

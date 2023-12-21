@@ -1,3 +1,5 @@
+@use '../colors';
+
 button {
   display: flex;
   align-items: center;
@@ -11,6 +13,9 @@ button {
   font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
+
+  background: var(--dark);
+  color: var(--light);
 
   cursor: pointer;
   transition: 200ms ease-in-out transform;
@@ -26,9 +31,4 @@ button {
 
 button:hover {
   transform: scale(1.1);
-}
-
-button:focus,
-button:focus-visible {
-  outline: 0.2rem auto black;
 }
