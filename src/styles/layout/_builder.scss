@@ -1,14 +1,39 @@
 .builder {
-  $page-width: 75vw;
-
-  width: $page-width;
-  min-height: $page-width * 1.41;
-  // ensures that page always at least has aspect ratio of A4 paper, which is 1.41
-  // using pixels would not work because page wouldn't resize dynamically & keep minimum aspect ratio
-
   margin: 2rem 4rem;
 
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+// Styled so that up to 800px viewports, the CV builder will fill 75vw
+// Larger than that, the width of the builder will stay fixed
+$breakpoint: 800px;
+$smallerVpMinBuilderWidth: 75vw;
+$biggerVpMaxBuilderWidth: $breakpoint * 0.75;
+$a4AspectRatio: 1.41;
+$fontSizeRelativeToViewportWidth: 0.014;
+
+@media (max-width: $breakpoint) {
+  .builder {
+    min-width: $smallerVpMinBuilderWidth;
+    width: $smallerVpMinBuilderWidth;
+    min-height: $smallerVpMinBuilderWidth * $a4AspectRatio;
+  }
+
+  :root {
+    font-size: $fontSizeRelativeToViewportWidth * 100vw;
+  }
+}
+
+@media (min-width: $breakpoint) {
+  .builder {
+    width: $biggerVpMaxBuilderWidth;
+    max-width: $biggerVpMaxBuilderWidth;
+    min-height: $biggerVpMaxBuilderWidth * $a4AspectRatio;
+  }
+
+  :root {
+    font-size: $fontSizeRelativeToViewportWidth * $breakpoint;
+  }
 }
